@@ -5,20 +5,21 @@ int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n; cin >> n; 
-    int x = 0;
+    string s ; 
+    cin >> s;
 
-    while(n--){
-        string s;
-        cin >> s;
-        if(s == "++X" || s == "X++"){
-            x++;
-        }else{
-            x--;
+    for(int i=0; i<s.length(); i++){
+        int dig = s[i] - '0';
+        int inv = 9 - dig;
+
+        if(inv < dig){
+            if(i == 0 && inv == 0){
+                continue;
+            }else{
+                s[i] = inv + '0' ;
+            }
         }
     }
-
-    cout << x <<"\n"; 
-
+    cout << s;
     return 0 ; 
 }
