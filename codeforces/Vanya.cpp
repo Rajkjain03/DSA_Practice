@@ -1,27 +1,25 @@
     #include <bits/stdc++.h>
     using namespace std;
 
+    int fun(int n ){
+        return (n*(n+1)/2);
+    }
+
     int main()
     {
         ios::sync_with_stdio(0);
         cin.tie(NULL);
 
         int n ; cin >> n ; 
+        int lvl = 0;
 
-        if(n == 1){
-            cout << n ; 
-            return 0 ; 
+        while(true){
+            n -= fun(lvl+1);
+            if(n >= 0)lvl++;
+            else break;
         }
-
-        int count = 0 ;
-
-        int i = 1; 
-        while ( i <= n ){
-            i = i + (i*(i + 1))/2;
-            count++;
-        }
-
-        cout << count ; 
+         
+        cout << lvl;
 
         return 0;
     }
